@@ -105,8 +105,6 @@ private:
     enum AUTHORITY m_eAuthority = ADMIN;
 
 
-
-
 };
 
 #endif // LOGIN_H

@@ -53,26 +53,26 @@ void Login::on_signup_pb_create_account_clicked()
 
 void Login::on_demo_pb_admin_clicked()
 {
-    MainWindow mainwindow(MainWindow::Authority::ADMIN);
-    mainwindow.show();
+    m_IsDemo = true;
+    m_eAuthority = ADMIN;
 }
 
 void Login::on_demo_pb_manager_clicked()
 {
-    MainWindow mainwindow(MainWindow::Authority::MANAGER);
-    mainwindow.show();
+    m_IsDemo = true;
+    m_eAuthority = MANAGER;
 }
 
 void Login::on_demo_pb_dev_clicked()
 {
-    MainWindow mainwindow(MainWindow::Authority::DEVELOPER);
-    mainwindow.show();
+    m_IsDemo = true;
+    m_eAuthority = DEVELOPER;
 }
 
 void Login::on_demo_pb_tester_clicked()
 {
-    MainWindow mainwindow(MainWindow::Authority::TESTER);
-    mainwindow.show();
+    m_IsDemo = true;
+    m_eAuthority = TESTER;
 }
 
 void Login::on_demo_pb_signIn_clicked()
