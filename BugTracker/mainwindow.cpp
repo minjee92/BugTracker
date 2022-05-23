@@ -22,7 +22,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::LoggedInAsDemo()
 {
-    int value = m_pLogin->loginAuthority();
+    int value = static_cast<int>(m_pLogin->loginAuthority());
     m_eCurrentAuthority = static_cast<enum AUTHORITY>(value);
 
     deleteLoginPage();
@@ -55,7 +55,7 @@ void MainWindow::createLoginPage()
 
     //메인윈도우와 로그인 페이지 시그날,슬롯 연결
     //데모버전으로 로그인 시 이벤트 연결
-    connect(m_pLogin,SIGNAL(Login::LoginAsDemo),this,SLOT(LoggedInAsDemo));
+    connect(m_pLogin,&Login::LoginAsDemo,this,&MainWindow::LoggedInAsDemo);
 
 }
 
