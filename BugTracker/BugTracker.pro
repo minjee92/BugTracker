@@ -9,21 +9,36 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Dashboard.cpp \
     DataManager.cpp \
     LoginPage.cpp \
     MainPage.cpp \
+    ManageUser.cpp \
+    MyProject.cpp \
+    MyTicket.cpp \
+    UserProfile.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    Dashboard.h \
     DataManager.h \
     LoginPage.h \
     MainPage.h \
+    ManageUser.h \
+    MyProject.h \
+    MyTicket.h \
+    UserProfile.h \
     mainwindow.h
 
 FORMS += \
+    Dashboard.ui \
     LoginPage.ui \
     MainPage.ui \
+    ManageUser.ui \
+    MyProject.ui \
+    MyTicket.ui \
+    UserProfile.ui \
     mainwindow.ui
 
 # Default rules for deployment.
