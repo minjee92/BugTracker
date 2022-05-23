@@ -1,5 +1,5 @@
-#ifndef LOGIN_H
-#define LOGIN_H
+#ifndef LOGINPAGE_H
+#define LOGINPAGE_H
 
 #include <QWidget>
 #include "DataManager.h"
@@ -51,7 +51,10 @@ public:
      */
     enum AUTHORITY loginAuthority() const;
 
-private slots:
+  signals :
+    void LoginAsDemo();
+
+  private slots:
     /* */
     void on_login_pb_fogot_pw_clicked();
 
@@ -107,4 +110,4 @@ private:
 
 };
 
-#endif // LOGIN_H
+#endif // LOGINPAGE_H

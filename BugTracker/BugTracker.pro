@@ -10,17 +10,20 @@ CONFIG += c++17
 
 SOURCES += \
     DataManager.cpp \
-    Login.cpp \
+    LoginPage.cpp \
+    MainPage.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     DataManager.h \
-    Login.h \
+    LoginPage.h \
+    MainPage.h \
     mainwindow.h
 
 FORMS += \
-    Login.ui \
+    LoginPage.ui \
+    MainPage.ui \
     mainwindow.ui
 
 # Default rules for deployment.

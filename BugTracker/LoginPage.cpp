@@ -1,4 +1,4 @@
-#include "Login.h"
+#include "LoginPage.h"
 #include "ui_Login.h"
 #include "mainwindow.h"
 
@@ -60,24 +60,28 @@ void Login::on_demo_pb_admin_clicked()
 {
     m_IsDemo = true;
     m_eAuthority = ADMIN;
+    emit LoginAsDemo();
 }
 
 void Login::on_demo_pb_manager_clicked()
 {
     m_IsDemo = true;
     m_eAuthority = MANAGER;
+    emit LoginAsDemo();
 }
 
 void Login::on_demo_pb_dev_clicked()
 {
     m_IsDemo = true;
     m_eAuthority = DEVELOPER;
+    emit LoginAsDemo();
 }
 
 void Login::on_demo_pb_tester_clicked()
 {
     m_IsDemo = true;
     m_eAuthority = TESTER;
+    emit LoginAsDemo();
 }
 
 void Login::on_demo_pb_signIn_clicked()
