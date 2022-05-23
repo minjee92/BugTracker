@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "Login.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -46,17 +47,33 @@ private:
      * \details
      */
     enum Authority m_eCurrentAuthority = ADMIN;
+private slots:
+
 
 private:
     /*!
      * \brief initialize
-     * \details initialize mainwindow class
+     * \details initialize mainwindow class , 메인 윈도우 초기설정
      */
     void initialize();
     void initialzieAsAdmin();
     void initialzieAsManager();
     void initialzieAsDeveloper();
     void initialzieAsTester();
+
+    /* 로그인 페이지 설정 함수들 */
+    /*!
+     * \brief createLoginPage
+     * \details 로그인 페이지 생성함수. 로그인 화면이 필요할 경우 항상 새로이 생성함. (로그인 성공 후에는 굳이 필요하지 않으므로)
+     */
+    void createLoginPage();
+    /*!
+     * \brief deleteLoginPage
+     * \details 로그인 페이지 삭제함수. 로그인이 완료되면 불필요한 로그인 페이지를 삭제하기 위함.
+     */
+    void deleteLoginPage();
+
+    Login* m_pLogin = nullptr;
 
 };
 #endif // MAINWINDOW_H

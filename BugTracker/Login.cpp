@@ -38,9 +38,10 @@ void Login::on_login_pb_demo_page_clicked()
 
 void Login::on_login_pb_login_clicked()
 {
-    //
+    //Server is not update
     //2022-05-22
     QMessageBox::information(this,"Information","The server is not responding..");
+
 }
 
 
@@ -49,6 +50,10 @@ void Login::on_signup_pb_create_account_clicked()
     //Server is not update
     //2022-05-22
     QMessageBox::information(this,"Information","The server is not responding..");
+    ui->stackedWidget->setCurrentIndex(PAGE_INDEX::LOGIN_PAGE);
+    // set cursor focusing to login page first edit widget
+    ui->login_edit_email->setFocus();
+    initializeSignUpPage();
 }
 
 void Login::on_demo_pb_admin_clicked()
@@ -78,7 +83,7 @@ void Login::on_demo_pb_tester_clicked()
 void Login::on_demo_pb_signIn_clicked()
 {
     initializeLoginPage();
-    ui->stackedWidget->currentChanged(LOGIN_PAGE);
+    ui->stackedWidget->setCurrentIndex(LOGIN_PAGE);
 
     // set cursor focusing to login page first edit widget
     ui->login_edit_email->setFocus();
@@ -86,9 +91,13 @@ void Login::on_demo_pb_signIn_clicked()
 
 void Login::on_pw_pb_change_pw_clicked()
 {
-
+    //Server is not update
     //2022-05-22
     QMessageBox::information(this,"Information","The server is not responding..");
+    ui->stackedWidget->setCurrentIndex(PAGE_INDEX::LOGIN_PAGE);
+    // set cursor focusing to login page first edit widget
+    ui->login_edit_email->setFocus();
+    initializePasswordPage();
 }
 
 void Login::initializeLoginPage()

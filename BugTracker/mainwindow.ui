@@ -110,11 +110,7 @@
        </layout>
       </widget>
       <widget class="QWidget" name="login_page">
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <widget class="Login" name="login_widget" native="true"/>
-        </item>
-       </layout>
+       <layout class="QVBoxLayout" name="verticalLayout_2"/>
       </widget>
      </widget>
     </item>
@@ -132,14 +128,6 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>Login</class>
-   <extends>QWidget</extends>
-   <header location="global">Login.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
