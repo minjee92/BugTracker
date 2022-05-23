@@ -10,7 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     //메인윈도우 실행시 로그인 화면부터 출력함
     createLoginPage();
-    //initialize();
+    ui->mainStack->setCurrentIndex(LOGIN_PAGE);
+    // 혹은
+    //Logout();
 }
 
 MainWindow::~MainWindow()
@@ -18,36 +20,22 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-void MainWindow::initialize()
+void MainWindow::LoggedInAsDemo()
 {
-//    switch (m_eCurrentAuthority)
-//    {
-//        case Authority::ADMIN:      initialzieAsAdmin();        break;
-//        case Authority::MANAGER:    initialzieAsManager();      break;
-//        case Authority::DEVELOPER:  initialzieAsDeveloper();    break;
-//        case Authority::TESTER:     initialzieAsTester();       break;
-//    }
-}
+    int value = m_pLogin->loginAuthority();
+    m_eCurrentAuthority = static_cast<enum AUTHORITY>(value);
 
-void MainWindow::initialzieAsAdmin()
-{
+    deleteLoginPage();
+    createMainPage();
+    ui->mainStack->setCurrentIndex(MAIN_PAGE);
 
 }
 
-void MainWindow::initialzieAsManager()
+void MainWindow::Logout()
 {
-
-}
-
-void MainWindow::initialzieAsDeveloper()
-{
-
-}
-
-void MainWindow::initialzieAsTester()
-{
-
+    deleteMainPage();
+    createLoginPage();
+    ui->mainStack->setCurrentIndex(LOGIN_PAGE);
 }
 
 void MainWindow::createLoginPage()
@@ -58,9 +46,16 @@ void MainWindow::createLoginPage()
         m_pLogin = nullptr;
     }
 
+    //로그인 위젯 생성
     m_pLogin = new Login(this);
+
+    //메인윈도우 로그인 페이지 위치에 로그인 위젯 배치
     QVBoxLayout* layout = static_cast<QVBoxLayout*>(ui->login_page->layout());
     layout->addWidget(m_pLogin);
+
+    //메인윈도우와 로그인 페이지 시그날,슬롯 연결
+    //데모버전으로 로그인 시 이벤트 연결
+    connect(m_pLogin,SIGNAL(Login::LoginAsDemo),this,SLOT(LoggedInAsDemo));
 
 }
 
@@ -72,6 +67,33 @@ void MainWindow::deleteLoginPage()
         layout->removeWidget((QWidget*)m_pLogin);
         delete m_pLogin;
         m_pLogin = nullptr;
+    }
+}
+
+void MainWindow::createMainPage()
+{
+    if(m_pMain != nullptr)
+    {
+        delete m_pMain;
+        m_pMain = nullptr;
+    }
+
+    //로그인 위젯 생성
+    m_pMain = new MainPage(this);
+
+    //메인윈도우 로그인 페이지 위치에 로그인 위젯 배치
+    QVBoxLayout* layout = static_cast<QVBoxLayout*>(ui->main_page->layout());
+    layout->addWidget(m_pMain);
+}
+
+void MainWindow::deleteMainPage()
+{
+    if(m_pMain != nullptr)
+    {
+        QVBoxLayout* layout = static_cast<QVBoxLayout*>(ui->main_page->layout());
+        layout->removeWidget((QWidget*)m_pMain);
+        delete m_pMain;
+        m_pMain = nullptr;
     }
 }
 

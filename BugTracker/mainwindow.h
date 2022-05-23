@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "Login.h"
+#include "LoginPage.h"
+#include "MainPage.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,14 +23,22 @@ class MainWindow : public QMainWindow
 public:
     /*!
      * \brief The Authority enum
-     * \details
      */
-    enum Authority
+    enum AUTHORITY
     {
         ADMIN = 0,
         MANAGER,
         DEVELOPER,
         TESTER
+    };
+
+    /*!
+     * \brief The PAGE_INDEX enum
+     */
+    enum PAGE_INDEX
+    {
+        MAIN_PAGE = 0,
+        LOGIN_PAGE
     };
 
     /*!
@@ -46,9 +55,10 @@ private:
      * \brief   m_eCurrentAuthority
      * \details
      */
-    enum Authority m_eCurrentAuthority = ADMIN;
+    enum AUTHORITY m_eCurrentAuthority = ADMIN;
 private slots:
-
+    void LoggedInAsDemo();
+    void Logout();
 
 private:
     /*!
@@ -56,10 +66,6 @@ private:
      * \details initialize mainwindow class , 메인 윈도우 초기설정
      */
     void initialize();
-    void initialzieAsAdmin();
-    void initialzieAsManager();
-    void initialzieAsDeveloper();
-    void initialzieAsTester();
 
     /* 로그인 페이지 설정 함수들 */
     /*!
@@ -73,7 +79,21 @@ private:
      */
     void deleteLoginPage();
 
+    /* 메인 페이지 설정 함수들*/
+    /*!
+     * \brief createMainPage
+     * \details 메인 페이지 생성함수. 로그인이 성공하면 메인 페이지 생성.
+     */
+    void createMainPage();
+    /*!
+     * \brief deleteMainPage
+     * \details 메인페이지 삭제함수. 로그아웃할 경우 메인 페이지 삭제.
+     */
+    void deleteMainPage();
+
+
     Login* m_pLogin = nullptr;
+    MainPage* m_pMain = nullptr;
 
 };
 #endif // MAINWINDOW_H
