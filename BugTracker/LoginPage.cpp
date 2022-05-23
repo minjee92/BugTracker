@@ -21,6 +21,11 @@ Login::~Login()
     delete ui;
 }
 
+Login::AUTHORITY Login::loginAuthority() const
+{
+    return m_eAuthority;
+}
+
 void Login::on_login_pb_fogot_pw_clicked()
 {
     ui->stackedWidget->setCurrentIndex(PAGE_INDEX::PASSWORD_PAGE);
