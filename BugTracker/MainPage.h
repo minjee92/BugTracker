@@ -10,10 +10,20 @@ class MainPage;
 class MainPage : public QWidget
 {
     Q_OBJECT
-
 public:
-    explicit MainPage(QWidget *parent = nullptr);
+    enum AUTHORITY
+    {
+        ADMIN = 0,
+        MANAGER,
+        DEV,
+        TESTER,
+        NONE
+    };
+
+
+    explicit MainPage(enum AUTHORITY _authority = ADMIN, QWidget *parent = nullptr);
     ~MainPage();
+
 
     void initializeAsAdmin();
     void initializeAsManager();
@@ -49,7 +59,7 @@ private:
 private:
     Ui::MainPage *ui;
 
-
+    enum AUTHORITY m_eAuthority = NONE;
 
 
 };

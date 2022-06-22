@@ -7,7 +7,11 @@
 namespace Ui {
 class Login;
 }
-
+/*!
+ * \brief The Login class
+ * \details Login page
+ * \author Lee minjee
+ */
 class Login : public QWidget
 {
     Q_OBJECT
@@ -15,12 +19,14 @@ class Login : public QWidget
 public:
     /*!
      * \brief The AUTHORITY enum
+     * \enum AUTHORITY
+     * \details Authority type of this program
      */
     enum AUTHORITY {
-        ADMIN = 0,
-        MANAGER,
-        DEVELOPER,
-        TESTER
+        ADMIN = 0,  //administor
+        MANAGER,    //manager
+        DEVELOPER,  //developer
+        TESTER      //tester
     };
 
     /*!
@@ -39,7 +45,7 @@ public:
 
     /*!
      * \brief isDemo
-     * \details
+     * \details This fucntion is checked it is login as demo mode.
      * \return bool if is deme version return true,
      */
     bool isDemo() const;
@@ -55,7 +61,7 @@ public:
     void LoginAsDemo();
 
   private slots:
-    /* */
+    /* Login page events */
     void on_login_pb_fogot_pw_clicked();
 
     void on_login_pb_create_account_clicked();
@@ -65,11 +71,11 @@ public:
     void on_login_pb_login_clicked();
 
 
-    /* */
+    /* signup page events */
     void on_signup_pb_create_account_clicked();
 
 
-    /*  */
+    /* demo page events */
     void on_demo_pb_admin_clicked();
 
     void on_demo_pb_manager_clicked();
@@ -81,7 +87,7 @@ public:
     void on_demo_pb_signIn_clicked();
 
 
-    /*  */
+    /* changing password page events */
     void on_pw_pb_change_pw_clicked();
 
 

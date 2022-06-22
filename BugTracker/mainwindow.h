@@ -49,13 +49,6 @@ public:
     ~MainWindow();
 
 
-private:
-    Ui::MainWindow *ui;
-    /*!
-     * \brief   m_eCurrentAuthority
-     * \details
-     */
-    enum AUTHORITY m_eCurrentAuthority = ADMIN;
 private slots:
     void LoggedInAsDemo();
     void Logout();
@@ -91,7 +84,13 @@ private:
      */
     void deleteMainPage();
 
-
+private:
+    Ui::MainWindow *ui;
+    /*!
+     * \brief   m_eCurrentAuthority
+     * \details
+     */
+    enum AUTHORITY m_eCurrentAuthority = ADMIN;
     Login* m_pLogin = nullptr;
     MainPage* m_pMain = nullptr;
 

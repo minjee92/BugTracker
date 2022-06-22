@@ -1,11 +1,22 @@
 #include "MainPage.h"
 #include "ui_MainPage.h"
 
-MainPage::MainPage(QWidget *parent) :
+MainPage::MainPage(AUTHORITY _authority, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MainPage)
 {
     ui->setupUi(this);
+
+    m_eAuthority = _authority;
+
+    switch (m_eAuthority) {
+    case ADMIN:     initializeAsAdmin();        break;
+    case MANAGER:   initializeAsManager();      break;
+    case DEV:       initializeAsDeveloper();    break;
+    case TESTER:    initializeAsTester();       break;
+    default:
+        break;
+    }
 }
 
 MainPage::~MainPage()

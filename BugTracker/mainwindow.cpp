@@ -11,8 +11,6 @@ MainWindow::MainWindow(QWidget *parent)
     //메인윈도우 실행시 로그인 화면부터 출력함
     createLoginPage();
     ui->mainStack->setCurrentIndex(LOGIN_PAGE);
-    // 혹은
-    //Logout();
 }
 
 MainWindow::~MainWindow()
@@ -79,11 +77,14 @@ void MainWindow::createMainPage()
     }
 
     //로그인 위젯 생성
-    m_pMain = new MainPage(this);
+    m_pMain = new MainPage(static_cast<MainPage::AUTHORITY>(m_eCurrentAuthority), this);
 
     //메인윈도우 로그인 페이지 위치에 로그인 위젯 배치
     QVBoxLayout* layout = static_cast<QVBoxLayout*>(ui->main_page->layout());
     layout->addWidget(m_pMain);
+
+    //메인윈도우와 메인페이지 시그날,슬롯 연결
+    connect(m_pMain,&MainPage::logout,this,&MainWindow::Logout);
 }
 
 void MainWindow::deleteMainPage()

@@ -23,7 +23,7 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color : rgb(255, 170, 255);</string>
+      <string notr="true"/>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -79,7 +79,7 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color:rgb(255, 255, 127)</string>
+      <string notr="true"/>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -174,10 +174,10 @@
    <item row="1" column="1">
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="styleSheet">
-      <string notr="true">background-color:rgb(0, 255, 255)</string>
+      <string notr="true"/>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="Dashboard" name="page_home"/>
      <widget class="ManageUser" name="page_manage_users"/>
